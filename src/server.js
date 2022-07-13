@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-mongoose.connect('mongodb+srv://anmolsharma:aA123456@cluster0.f1rg8zm.mongodb.net/ecommerce?retryWrites=true&w=majority')
+mongoose.connect('enter your Auth string url')
     .then(function() {
 
         app.get("/", function(req,res) {
