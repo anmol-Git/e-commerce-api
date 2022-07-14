@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }))
+app.use(express.static('uploads'));
 
 mongoose.connect('enter your Auth string url')
     .then(function() {
@@ -19,15 +20,21 @@ mongoose.connect('enter your Auth string url')
 
         const userRoutes = require('./routes/user_routes');
 
-        app.use('/api/user',userRoutes);
-
         const productRoutes = require("./routes/product_routes");
-        
-        app.use('/api/product',productRoutes);
 
         const categoryRoutes = require("./routes/category_routes");
+
+        const fileRoutes = require("./routes/file_routes");
+
         
+        
+        app.use('/api/user',userRoutes);
+  
+        app.use('/api/product',productRoutes);
+               
         app.use('/api/category',categoryRoutes);
+        
+        app.use('/api/file',fileRoutes);
         
     })
 
